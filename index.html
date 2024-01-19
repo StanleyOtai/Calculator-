@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    #center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 7%;
+      
+
+    }
+    #calculator{
+        padding: 35px;
+        border: 1px solid black;
+        border-radius: 20px;
+    }
+    input{
+        width: 225px;
+        height: 30px;
+        font-weight: bold;
+        font-size: 20px;
+      border-radius: 10px;
+    }
+    #change{
+        height: auto;
+        width: auto;
+    }
+    button{
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    p{
+        font-size: 13px;
+        text-align: center;
+        font-weight: bold;
+    }
+    h1{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        text-align: center;
+    }
+</style>
+<body>
+<div id="center">
+    <div id="calculator">
+        <h1 id="cal">CALCULATOR </h1>
+        <table>
+            <tr>
+                <th colspan="4"> <input type="text" id="displayresult" readonly></th>
+                <th> <input type="checkbox" id="change" onchange="change()"></th>
+            </tr>
+            <tr>
+                <td> <button onclick="insert('7')">7 </button></td>
+                <td> <button onclick="insert('8')">8 </button></td>
+                <td> <button onclick="insert('9')"> 9</button></td>
+                <td> <button onclick="insert('/')">&divide</button></td>
+            </tr>
+            <tr>
+                <td> <button onclick="insert('4')">4</button></td>
+                <td> <button onclick="insert('5')">5</button></td>
+                <td> <button onclick="insert('6')">6</button></td>
+                <td> <button onclick="insert('*')">&times </button></td>
+            </tr>
+            <tr>
+                <td> <button onclick="insert('1')">1</button></td>
+                <td> <button onclick="insert('2')">2</button></td>
+                <td> <button onclick="insert('3')">3</button></td>
+                <td> <button onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>
+                <td> <button onclick="insert('0')">0</button></td>
+                <td> <button onclick="Clearscreen()">C</button></td>
+                <td> <button onclick="calculate()">=</button></td>
+                <td> <button onclick="insert('+')">+</button></td>
+            </tr>
+        </table>
+        <p id="para">Powered by: Stanley & Joy - 19/01/2024 <br>(DeGreat-Tech Schools)</p> 
+    </div>
+</div>
+<script>
+let result=document.getElementById("displayresult");
+let calculator=document.getElementById("calculator");
+let checkbox=document.getElementById("change");
+let btn=document.getElementsByTagName("button");
+let para1=document.getElementsById("para");
+let cal1=document.getElementsById("cal");
+
+function insert(number){
+result.value += number;
+}
+function  calculate(){
+    var num1 = result.value;
+    var answer = eval(num1);
+    result.value = answer;
+
+}
+function  Clearscreen(){
+    result.value=" ";
+}
+function  change(){
+    if(checkbox.checked){
+        calculator.style.backgroundColor="black";  
+        result.style.backgroundColor="black";
+        result.style.color="white";
+        para.style.color="white";
+        cal.style.color="white";
+
+        for (var i=0; i<btn.length; i++){
+            btn[i].style.backgroundColor="black";
+            btn[i].style.color="white";
+            
+
+        }
+    }
+    else {
+        calculator.style.backgroundColor="";  
+        result.style.backgroundColor="";
+        result.style.color="";
+        para.style.color="";
+        cal.style.color="";
+
+
+        for (var i=0; i<btn.length; i++){
+            btn[i].style.backgroundColor="";
+            btn[i].style.color="";
+
+        }
+    }
+
+}
+</script>
+</body>
+</html>
